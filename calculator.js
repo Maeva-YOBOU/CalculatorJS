@@ -18,6 +18,23 @@ function setLastOperator(operator) {
 function clearDisplay() {
     document.getElementById('num1').value = '';
     document.getElementById('num2').value = '';
+    document.getElementById('display').value = '';
+}
+
+function add() {
+    setLastOperator('+'); // Définit l'opérateur en tant qu'addition
+}
+
+function subtract() {
+    setLastOperator('-'); // Définit l'opérateur en tant que soustraction
+}
+
+function multiply() {
+    setLastOperator('*'); // Définit l'opérateur en tant que multiplication
+}
+
+function divide() {
+    setLastOperator('/'); // Définit l'opérateur en tant que division
 }
 
 function calculate() {
@@ -25,7 +42,7 @@ function calculate() {
     var num2 = parseFloat(document.getElementById('num2').value);
 
     if (isNaN(num1) || isNaN(num2) || lastOperator === null) {
-        alert('Please enter valid numbers and select an operator');
+        alert('Veuillez entrer des nombres valides et sélectionner un opérateur');
         return;
     }
 
@@ -42,13 +59,13 @@ function calculate() {
             break;
         case '/':
             if (num2 === 0) {
-                alert('Cannot divide by zero');
+                alert('Impossible de diviser par zéro');
                 return;
             }
             result = num1 / num2;
             break;
         default:
-            alert('Invalid operator');
+            alert('Opérateur invalide');
             return;
     }
 
